@@ -26,6 +26,12 @@ function updateToDoListOnScreen() {
 
 document.addEventListener('DOMContentLoaded', (event) => {
   updateToDoListOnScreen();
+  
+  const aufraeumenButton = document.getElementById("aufraeumen"); 
+  aufraeumenButton.addEventListener("click", (event) => {
+    todos = todos.filter(t => !t.erledigt)
+    updateToDoListOnScreen();
+  });
 
   const neuesToDoElement = document.getElementById('neuesToDo');
   neuesToDoElement.addEventListener('keydown', (event) => {

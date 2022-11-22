@@ -9,16 +9,13 @@ let todos = [
 function updateToDoListOnScreen() {
   const todoListElement = document.getElementById('todolist');
 
-  // Liste leeren
   todoListElement.innerHTML = '';
 
-  // ToDo's einfügen
   for (const todo of todos) {
     const toDoListEntry = todo.element();
     todoListElement.appendChild(toDoListEntry);
   }
 
-  // offene ToDo's
   const offeneToDos = todos.filter((offen) => !offen.erledigt);
   const elementAnzahl = document.getElementById('anzahl');
   elementAnzahl.textContent = `${offeneToDos.length} ToDo's offen`;
@@ -31,6 +28,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
   aufraeumenButton.addEventListener("click", (event) => {
     todos = todos.filter(t => !t.erledigt)
     updateToDoListOnScreen();
+    
   });
 
   const neuesToDoElement = document.getElementById('neuesToDo');
